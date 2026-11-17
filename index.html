@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Browse the LitBuy spreadsheet guide with real CAFANS listings for shoes, hoodies, T-shirts and jackets. Compare variants, check QC photos and estimate your delivered cost.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LitBuy spreadsheet | Product Finds, QC & Shipping Budget">
+  <meta property="og:description" content="Browse CAFANS product finds, build a shortlist and compare the full cost before ordering through a shopping agent.">
+  <title>LitBuy spreadsheet | Product Finds, QC & Shipping Budget</title>
+  <!-- Save as index.html. After deployment, add a self-referencing canonical with the final public URL.
+       Indexing requests are pending the public URL and verified access. Use Google Search Console
+       URL Inspection and Bing Webmaster Tools URL Submission after deployment.
+       Google: https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl
+       Bing: https://www.bing.com/webmasters/help/URL-Submission-62f2860b
+       Search-result review: litbuy.works covers QC and shipment tracking, litbuyex.com groups
+       apparel and accessories, and litbuyspreadsheet.org emphasizes product discovery and agent
+       links. This page adds direct catalog references, a variant checklist and an itemized budget.
+       Catalog source: https://cafans.com/ and the linked CAFANS product pages. -->
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f4eb;
+      --card: #fffdf6;
+      --ink: #17291f;
+      --muted: #495e50;
+      --forest: #143b2c;
+      --lime: #ddf2a6;
+      --line: #ced7c8;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 system-ui, sans-serif; }
+    a { color: #235739; text-underline-offset: .19em; }
+    a:hover { text-decoration-thickness: .15em; }
+    :focus-visible { outline: 3px solid #6b9a32; outline-offset: 4px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: Georgia, serif; line-height: 1.05; }
+    h1 { margin-bottom: 1rem; font-size: clamp(2.8rem, 9vw, 6.3rem); letter-spacing: -.065em; }
+    h2 { margin-bottom: .8rem; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -.04em; }
+    .wrap { width: min(68rem, calc(100% - 2rem)); margin-inline: auto; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: .9rem; flex-wrap: wrap; }
+    .top nav, .actions, .categories { display: flex; flex-wrap: wrap; gap: .55rem 1rem; }
+    .hero { padding: clamp(3.5rem, 9vw, 7rem) 1rem; border-radius: 1.4rem; background: var(--forest); color: #fffdf6; text-align: center; }
+    .hero p { max-width: 40rem; margin-inline: auto; color: #e2eddd; }
+    .actions { justify-content: center; margin-top: 1.7rem; }
+    .button { display: inline-block; padding: .75rem 1.15rem; border: 1px solid var(--lime); border-radius: .5rem; background: var(--lime); color: var(--ink); font-weight: 750; text-decoration: none; }
+    .button.secondary { background: transparent; color: #fffdf6; }
+    .button:hover { text-decoration: underline; }
+    section { margin-block: 3.4rem; }
+    .subtle { color: var(--muted); }
+    .categories { margin: 1.25rem 0; }
+    .categories a { padding: .3rem .65rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: .8rem; background: var(--card); }
+    table { width: 100%; min-width: 32rem; border-collapse: collapse; text-align: left; }
+    th, td { padding: .85rem 1rem; }
+    thead th { background: var(--forest); color: white; }
+    tbody tr + tr { border-top: 1px solid var(--line); }
+    tbody th { font-weight: 650; }
+    .price { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .panel { padding: clamp(1rem, 3vw, 1.6rem); background: var(--card); border: 1px solid var(--line); border-radius: .9rem; }
+    .panel ul { padding-left: 1.2rem; margin-bottom: 0; }
+    .panel li + li { margin-top: .6rem; }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+    label { display: block; font-weight: 650; }
+    input { display: block; width: 100%; margin-top: .25rem; padding: .5rem; border: 1px solid #879b8c; border-radius: .35rem; background: white; color: var(--ink); font: inherit; }
+    output { display: block; margin-top: 1rem; padding: .65rem; background: var(--lime); border-radius: .4rem; font-weight: 750; }
+    details { border-top: 1px solid var(--line); padding: .8rem 0; }
+    summary { cursor: pointer; font-weight: 700; }
+    details p { margin: .6rem 0 0; }
+    footer { border-top: 1px solid var(--line); padding-block: 1.25rem; color: var(--muted); }
+    @media (max-width: 43rem) { .panels { grid-template-columns: 1fr; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "LitBuy spreadsheet",
+    "description": "An independent product comparison guide with CAFANS listings, a quality check checklist and a delivered-cost estimator.",
+    "inLanguage": "en",
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Featured CAFANS product finds",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Leather Slides","url":"https://cafans.com/goods-158791.html"},
+        {"@type":"ListItem","position":2,"name":"Platform Slides","url":"https://cafans.com/goods-158790.html"},
+        {"@type":"ListItem","position":3,"name":"Sweatshirt","url":"https://cafans.com/goods-158792.html"},
+        {"@type":"ListItem","position":4,"name":"Thug Club - Rock Hoodie","url":"https://cafans.com/goods-158280.html"},
+        {"@type":"ListItem","position":5,"name":"Unisex Embroidered Oversized T-Shirt","url":"https://cafans.com/goods-158200.html"},
+        {"@type":"ListItem","position":6,"name":"Corteiz Jacket","url":"https://cafans.com/goods-158279.html"}
+      ]
+    }
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/otinh/">
+</head>
+<body>
+  <header class="wrap top">
+    <strong>LitBuy spreadsheet guide</strong>
+    <nav aria-label="Page sections">
+      <a href="#catalog">Catalog</a>
+      <a href="#ordering">QC &amp; budget</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <h1>LitBuy spreadsheet</h1>
+      <p>Compare shoes, hoodies, T-shirts and jackets from the CAFANS catalog. Save the exact variant you want, check the warehouse photos and work out the delivered cost before you pay for shipping.</p>
+      <div class="actions">
+        <a class="button" href="https://cafans.com/">LitBuy spreadsheet</a>
+        <a class="button secondary" href="https://cafans.com/">Buy it now</a>
+      </div>
+    </div>
+
+    <section id="catalog" aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Product catalog</h2>
+      <p class="subtle" id="price-note">These are estimated USD prices displayed by CAFANS when the listings were checked. Open a listing to confirm its current price and options.</p>
+      <nav class="categories" aria-label="CAFANS categories">
+        <a href="https://cafans.com/category-911-Shoes.html">Shoes</a>
+        <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies &amp; sweaters</a>
+        <a href="https://cafans.com/category-913-T-Shirts.html">T-shirts</a>
+        <a href="https://cafans.com/category-914-Jackets.html">Jackets</a>
+      </nav>
+      <div class="table-wrap" role="region" aria-label="Featured CAFANS listings" tabindex="0">
+        <table aria-describedby="price-note">
+          <thead>
+            <tr><th scope="col">CAFANS listing</th><th scope="col">Category</th><th scope="col">Est. price</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158791.html">Leather Slides</a></th><td>Shoes</td><td class="price">$62.36</td></tr>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158790.html">Platform Slides</a></th><td>Shoes</td><td class="price">$46.67</td></tr>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158792.html">Sweatshirt</a></th><td>Hoodies &amp; sweaters</td><td class="price">$27.50</td></tr>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158280.html">Thug Club - Rock Hoodie</a></th><td>Hoodies &amp; sweaters</td><td class="price">$37.22</td></tr>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158200.html">Unisex Embroidered Oversized T-Shirt</a></th><td>T-shirts</td><td class="price">$32.64</td></tr>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158279.html">Corteiz Jacket</a></th><td>Jackets</td><td class="price">$42.78</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="ordering" aria-labelledby="ordering-title">
+      <h2 id="ordering-title">Check the item and budget the order</h2>
+      <div class="panels">
+        <article class="panel">
+          <h3>Shortlist and warehouse QC</h3>
+          <ul>
+            <li>Save the listing URL, seller SKU or variant name, color, size, quoted price and date. Keep that information together if you compare multiple listings.</li>
+            <li>For shoes, compare measurements using the same method as the listing. For clothing, compare flat chest width and body length with a garment that fits you.</li>
+            <li>When warehouse photos are available, compare the color, size label and visible condition with your order. Check the return window before approving shipment.</li>
+            <li>For shipping, compare quotes for the same destination, parcel dimensions and packed weight. Check which taxes or handling fees each quote includes.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h3>Delivered-cost estimator</h3>
+          <p class="subtle" id="budget-help">Convert each quote to USD first. Enter combined totals for the parcel and count each charge once.</p>
+          <form id="budget" aria-describedby="budget-help">
+            <div class="fields">
+              <label for="items">Items (USD)<input id="items" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00"></label>
+              <label for="domestic">Domestic shipping<input id="domestic" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00"></label>
+              <label for="fees">Agent and payment fees<input id="fees" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00"></label>
+              <label for="international">International shipping<input id="international" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00"></label>
+              <label for="taxes">Tax and duty estimate<input id="taxes" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00"></label>
+            </div>
+            <output id="budget-total" for="items domestic fees international taxes" aria-live="polite">Enter your quotes to calculate a total.</output>
+            <noscript><p>Add the five amounts to estimate your total.</p></noscript>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">LitBuy spreadsheet FAQ</h2>
+      <details open>
+        <summary>What is a LitBuy spreadsheet?</summary>
+        <p>It is a shortlist for tracking product links and comparing details such as seller options, sizing, quality check photos and likely delivery costs. This independent guide uses CAFANS listings as its product source.</p>
+      </details>
+      <details>
+        <summary>Can I order these items through LitBuy?</summary>
+        <p>Check the options on the CAFANS product page. If you plan to use LitBuy, confirm that it accepts the original seller link and supports your chosen variant and destination before paying.</p>
+      </details>
+      <details>
+        <summary>What should I do if a product link has changed?</summary>
+        <p>Open the matching CAFANS category and search for the product name. Confirm the seller, variant and current price before replacing the saved link in your shortlist.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Independent shopping guide. Product links and both shopping buttons open CAFANS.
+  </footer>
+
+  <script>
+    const budget = document.getElementById('budget');
+    const fields = [...budget.querySelectorAll('input')];
+    const total = document.getElementById('budget-total');
+    const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+
+    function updateTotal() {
+      if (fields.some(field => !field.validity.valid)) {
+        total.value = 'Enter amounts of zero or more, with up to two decimal places.';
+        return;
+      }
+
+      if (fields.every(field => field.value === '')) {
+        total.value = 'Enter your quotes to calculate a total.';
+        return;
+      }
+
+      const cents = fields.reduce((sum, field) =>
+        sum + Math.round(Number(field.value) * 100), 0);
+      total.value = Number.isSafeInteger(cents)
+        ? `Estimated total · ${usd.format(cents / 100)} USD`
+        : 'Enter smaller amounts to calculate a total.';
+    }
+
+    budget.addEventListener('input', updateTotal);
+    budget.addEventListener('submit', event => event.preventDefault());
+    updateTotal();
+  </script>
+</body>
+</html>
